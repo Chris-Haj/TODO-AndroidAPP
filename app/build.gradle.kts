@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+    namespace = "com.example.todo"
     compileSdk = 33
 
     defaultConfig {

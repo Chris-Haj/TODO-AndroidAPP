@@ -1,4 +1,4 @@
-package com.example.todo.ui.login;
+package com.example.todo.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,13 +10,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.todo.R;
-import com.example.todo.ui.main.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     private EditText emailEditText, passwordEditText;
     private Button loginButton, registerButton;
     private FirebaseAuth auth;
@@ -67,11 +66,11 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(Login.this, Main.class);
                             startActivity(intent);
                             finish();
                         } else {
-                            Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -96,9 +95,9 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "User registered successfully.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "User registered successfully.", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(LoginActivity.this, "Registration failed.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Registration failed.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
